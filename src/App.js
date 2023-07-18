@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 function Operator({ value, onOperatorClick }) {
@@ -67,7 +67,7 @@ function Display({ entry, currentEntry }) {
 
 function Calculator() {
   const [entry, setEntry] = useState("");
-  const [currentEntry, setCurrentEntry] = useState("0");
+  const [currentEntry, setCurrentEntry] = useState("");
 
   function handleClick(c) {
     let newEntry = entry;
@@ -87,36 +87,36 @@ function Calculator() {
         setCurrentEntry(1/parseFloat(currentEntry));
         break;
       case 'CE':
-        setCurrentEntry("0");
+        setCurrentEntry("");
         break;
       case 'C':
         setEntry("");
-        setCurrentEntry("0");
+        setCurrentEntry("");
         break;
       case 'del':
-        setCurrentEntry(Math.floor(parseInt(currentEntry) / 10));
+        setCurrentEntry(currentEntry.slice(0, -1));
         break;
       case '/':
         setEntry(newEntry + currentEntry + '/');
-        setCurrentEntry("0");
+        setCurrentEntry("");
         break;
       case '*':
         setEntry(newEntry + currentEntry + '*');
-        setCurrentEntry("0");
+        setCurrentEntry("");
         break;
       case '-':
         setEntry(newEntry + currentEntry + '-');
-        setCurrentEntry("0");
+        setCurrentEntry("");
         break;
       case '+':
         setEntry(newEntry + currentEntry + '+');
-        setCurrentEntry("0");
+        setCurrentEntry("");
         break;
       case '+/-':
         setCurrentEntry(parseFloat(currentEntry) * -1);
         break;
       case '.':
-        setCurrentEntry(currentEntry + '.')
+        if (!currentEntry.includes('.')) setCurrentEntry(currentEntry + '.')
         break;
       case '=':
         try {
@@ -129,13 +129,23 @@ function Calculator() {
         break;
       // numbers
       default:
-        setCurrentEntry(parseFloat(currentEntry) * 10 + parseFloat(c));
+        //setCurrentEntry(parseFloat(currentEntry) * 10 + parseFloat(c));
+        setCurrentEntry(currentEntry === '0' ? c: currentEntry + c)
     }
   }
 
   return (
     <div className='calculator'>
+      <div className="header">
+        <img
+          src="https://cheps.engin.umich.edu/wp-content/uploads/sites/118/2021/06/Center-for-Healthcare-Engineering-Patient-Safety.png"  // Replace with the actual image URL
+          alt="University of Michigan Block M"
+          className="logo"
+        />
+      </div>
+      <div className='display'>
         <Display entry={entry} currentEntry={currentEntry}/>
+      </ div>
         <ButtonContainer onButtonClick={handleClick} />
     </div>
   );

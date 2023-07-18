@@ -2,28 +2,19 @@
 
 .calculator {
   width: 300px;
-  background-color: #f2f2f2;
+  background-color: #00274c; /* Maize Blue */
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.entry-display {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 10px;
-  font-size: 14px;
-  text-align: right;
-  margin-bottom: 10px;
-}
-
+.entry-display,
 .current-entry-display {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #ffd700; /* Maize Yellow */
+  color: #00274c; /* Maize Blue */
+  border: 1px solid #00274c; /* Maize Blue */
   border-radius: 3px;
   padding: 10px;
-  font-size: 24px;
   text-align: right;
   margin-bottom: 20px;
 }
@@ -35,7 +26,8 @@
 }
 
 .button {
-  background-color: #ddd;
+  background-color: #ffffff; /* White */
+  color: #00274c; /* Maize Blue */
   border: none;
   border-radius: 3px;
   padding: 10px;
@@ -45,15 +37,32 @@
 }
 
 .button.operator {
-  background-color: #f5923e;
-  color: #fff;
+  background-color: #00274c; /* Maize Blue */
+  color: #ffffff; /* White */
 }
 
 .button.equal {
-  background-color: #2d9cdb;
-  color: #fff;
+  background-color: #ffd700; /* Maize Yellow */
+  color: #00274c; /* Maize Blue */
 }
 
 .button:hover {
-  background-color: #bbb;
+  background-color: #dddddd; /* Light Gray */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 310px;  /* Adjust the dimensions as needed */
+  height: 40px;
+}
+
+.cheps-text {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 18px;
 }
